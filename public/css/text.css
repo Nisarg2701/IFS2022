@@ -1,0 +1,77 @@
+@import "carrers.css";
+input[type=text], select, textarea {
+background-color:#fcfcfc;
+ padding: 12px;
+ border: 1.5px solid #ccc;
+ border-radius: 10px;
+ resize: vertical;
+}
+input[type=submit]{
+ background-image: linear-gradient(#0dccea, #0d70ea);
+ border: 0;
+ border-radius: 4px;
+ box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ font-family: Montserrat,sans-serif;
+ font-size: .9em;
+ margin: 5px;
+ padding: 10px 15px;
+ text-align: center;
+ user-select: none;
+ -webkit-user-select: none;
+ touch-action: manipulation;
+}
+/* ul li .content{
+    list-style-type: square;
+   left: 0;
+   height: 25px;
+   color: #035efc;
+}
+ul li .nav-item{
+   list-style-type: none;
+}
+ul li span{
+   color: black;
+} */
+.textarea{
+   resize:none;
+   height: 150px;
+}
+
+.applynow-container{
+   display:flex;
+   justify-content: space-evenly;
+   margin-top: 30px;
+}
+@media (max-width: 1000px){
+   .applynow-container{
+      flex-wrap:wrap;
+   }
+}
+.sub-container{
+   border: 2px solid #0dccea;
+   padding: 30px;
+   margin: 30px;
+}
+.applynow-head{
+   text-align: center;
+}
+.applynow-form-elem{
+   margin: 1%;
+}
+input[type=text].applynow-form-elem ,textarea.applynow-form-elem, .applynow-radio-group{
+   width: 90%;
+}
+.applynow-radio-group{
+   border:1.5px solid #ccc;
+   background-color:#fcfcfc;
+   padding: 5px;
+   border-radius: 10px;
+}
+.applynow-img{
+   margin: 10px;
+ }
+
+

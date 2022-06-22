@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*{
+    /* font-family: 'PT Serif', serif; */
+    font-family: 'Anek Malayalam', sans-serif;
+    font-size: 20px;
+/* font-family: 'Libre Baskerville', serif; */
+}
+.MAIN{
+    background: url('../images/peakpx.jpg');
+    /* background-color:rgb(241 245 249); */
+
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+small.form-error{
+    color: red;
+}
+.carouselImg{
+    height: 400px;
+}
+.body-font{
+    padding: 10px;
+    background: #262626;
+}
+.nav-main{
+    color: aqua;
+}
+.nav-link{
+    color: #cccccc;
+    text-shadow: 2px 1px 2px black;
+}
+

@@ -1,0 +1,51 @@
+
+.carrer-form{
+   text-align: justify;
+}
+.carrer-spec{
+   text-align: center;
+}
+.application{
+    margin: 30px;
+}
+.carrer-container{
+    display:flex;
+   justify-content: space-evenly;
+   margin-top: 30px;
+}
+
+@media (max-width: 1000px){
+    .carrer-container{
+       flex-wrap:wrap;
+    }
+ }
+.not-hiring{
+   margin: 0px;
+   padding: 250px;
+   text-align: center;
+}
+ li.content{
+   border: 2px solid black;
+   padding: 20px;
+   margin-left: 0px;
+   color: black;
+   text-shadow: 1px 1px 1px grey;
+   font-size: large;
+   font-family: cursive;
+ }
+ .btn-group{
+    height: 100px;
+    width: 200px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items: left;
+ }
+ul.content, li.content{
+   list-style-type: none;
+   background: #f9f582;
+   /* font-size: 30px;
+   font-style: bold;
+   margin: 20px;
+   height: 25px;
+   color: rgb(67, 19, 242); */
+}

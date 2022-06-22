@@ -1,0 +1,15 @@
+.main_heading{
+    text-align: center;
+}
+tbody tr:nth-child(even) {
+    background-color: #eee;
+}
+th {
+    background-color: #36c;
+    color: #fff;
+    text-align: left;
+}
+.containerr{
+    width: 95%;
+    margin: auto;
+}
