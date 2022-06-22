@@ -23,8 +23,8 @@ small.form-error{
     height: 400px;
 }
 .body-font{
-    padding: 10px;
-    background: #262626;
+    /* padding: 10px;x   */
+    /* background: #262626;  */
 }
 .nav-main{
     color: aqua;
@@ -32,5 +32,15 @@ small.form-error{
 .nav-link{
     color: #cccccc;
     text-shadow: 2px 1px 2px black;
+}
+.blogs {
+
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0px 5px 15px rgb(0 0 0 / 10%);
+    margin: 100px;
+    font-size: 15px;
+    line-height: 28px;
+    font-weight: 400;
 }
 
