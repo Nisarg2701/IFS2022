@@ -7,7 +7,7 @@
 @push('title', 'Home')
 @section('main_content')
 <h1>HOME</h1>
-
+<div class="container">
 {{-- Form Open --}}
 {!! Form::open([
     'url' => url('admin/add'),
@@ -20,21 +20,21 @@
 {!! Form::label('Image', 'Image', ['class' => '']) !!}
 
 {!! Form::file('image', [
-    'class' => '',
+    'class' => 'applynow-form-elem',
     'id' => 'image'
 ]) !!}
 @error('image')
-        {{ $message }}
+    <small class="form-error"><br>&ensp;{{$message}}<br></small>
 @enderror
 {{-- submit --}}
 {!! Form::submit('submit', [
-    'class' => '',
+    'class' => 'applynow-form-elem',
     'id' => 'submit'
 ]) !!}
     {{-- Form Close --}}
 {!! Form::close() !!}
 
-
+</div>
 {{-- Data Table --}}
 <br>
 <table class="table">

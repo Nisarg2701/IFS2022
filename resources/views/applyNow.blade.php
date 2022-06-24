@@ -9,7 +9,7 @@
   }
 @endphp
 @section('main_content')
-<h1 class="applynow-head">Apply Now</h1>
+<h1 class="heading">Apply Now</h1>
     {{-- Form start --}}
     {!! Form::open([
         'url' => url('/apply/application'),

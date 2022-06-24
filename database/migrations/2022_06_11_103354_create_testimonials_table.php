@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('testimonial_id');
             $table->string('name', 100);
             $table->string('testimonials', 500);
+            $table->string('designation', 100);
             $table->enum('visibility', ['yes', 'no']);
             $table->string('image', 400);
             $table->timestamps();

@@ -10,7 +10,7 @@
 @extends('layouts.main')
 @push('title', $service->name)
 @section('main_content')
-    <h1>{{ $service->name}}</h1>
+    <h1 class="heading">{{ $service->name}}</h1>
 
 
 @endsection

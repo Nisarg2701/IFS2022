@@ -103,6 +103,7 @@ class AboutUsController extends Controller
         $request->validate([
             'name' => 'required|max:100',
             'image' => 'required|mimes:jpg,png|max:16000',
+            'designation' => 'required|max:100',
             'testimonial' => 'required|max:500'
         ]);
 
@@ -111,6 +112,7 @@ class AboutUsController extends Controller
         $store = $request->file('image')->storeAs('public/'.$path, $image);
         $testimonial = new Testimonials;
         $testimonial->name = $request['name'];
+        $testimonial->designation = $request['designation'];
         $testimonial->testimonials = $request['testimonial'];
         $testimonial->visibility = 'no';
         $testimonial->image = $path."/".$image;
@@ -149,11 +151,13 @@ class AboutUsController extends Controller
     public function testimonialsUpdateAdmin($id, Request $request){
         $request->validate([
             'name' => 'required|max:100',
-            'testimonial' => 'required|max:500'
+            'testimonial' => 'required|max:500',
+            'designation' => 'required|max:100'
         ]);
 
         $testimonial = Testimonials::find($id);
         $testimonial->name = $request['name'];
+        $testimonial->designation = $request['name'];
         $testimonial->testimonials = $request['testimonial'];
         $testimonial->save();
 

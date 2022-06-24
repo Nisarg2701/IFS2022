@@ -20,10 +20,10 @@
 
   <body>
 
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark header">
+<nav class="navbar navbar-expand-sm bg-info navbar-dark header">
     <i class="fa fa-header" aria-hidden="true" style="padding-right: 2%; color: white">Admin</i>
-    <a class="navbar-brand" href="#"><img src="{{ url('images\innovative_logo_design.jpg') }}" alt="Logo" style="width:40px;"></a>
-    <a class="navbar-brand" href="#"><img src="{{ url('images\innovative_logo_name.jpg') }}" alt="Logo" style="width:140px;"></a>
+    <a class="navbar-brand" href="#"><img src="{{ url('images\output-onlinepngtools logo.png') }}" alt="Logo" style="width:40px;"></a>
+    <a class="navbar-brand" href="#"><img src="{{ url('images\output-onlinepngtools.png') }}" alt="Logo" style="width:140px;"></a>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link  @if ($__env->yieldPushContent('title') == "Home") active @endif" href="{{ url('/admin') }}">Home</a>
@@ -32,10 +32,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           About Us
         </a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item bg-primary" href="{{ url('/admin/about/awards') }}">Awards</a>
-            <a class="dropdown-item bg-primary" href="{{ url('/admin/about/testimonials') }}">Testimonials</a>
-            <a class="dropdown-item bg-primary" href="{{ url('/admin/about/principals') }}">Principals</a>
+        <div class="dropdown-menu bg-info">
+            <a class="dropdown-item " href="{{ url('/admin/about/awards') }}">Awards</a>
+            <a class="dropdown-item " href="{{ url('/admin/about/testimonials') }}">Testimonials</a>
+            <a class="dropdown-item " href="{{ url('/admin/about/principals') }}">Principals</a>
         </div>
       </li>
       <li class="nav-item">
@@ -49,9 +49,9 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
           Careers
         </a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item bg-primary" href="{{ url('/admin/careers/information') }}">Recruitment Information</a>
-            <a class="dropdown-item bg-primary" href="{{ url('/admin/careers/application') }}">Recruitment Application</a>
+        <div class="dropdown-menu bg-info">
+            <a class="dropdown-item" href="{{ url('/admin/careers/information') }}">Recruitment Information</a>
+            <a class="dropdown-item" href="{{ url('/admin/careers/application') }}">Recruitment Application</a>
         </div>
       </li>
 

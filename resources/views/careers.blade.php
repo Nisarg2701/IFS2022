@@ -13,11 +13,9 @@
 @if (sizeof($jobs)>1)
 @section('main_content')
 
-
-
-    <h1>We are Hiring</h1>
-
+<h1 class="heading">We are Hiring</h1>
 <div class="carrer-container container ">
+
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <script>var jobId = [];
                     var specificationValues = [];
@@ -44,12 +42,15 @@
             @endphp
         </div>
         <br>
+
             <p class="card">
+
             <div id="description" class="container" style="display: none">
                 <h1 class="carrer-spec">Specifications</h1>
                     <div class="container card-text" id="specifications"></div>
             </div>
             </p>
+
             <div id="form" class="carrer-form container card col-md-6">
                 <div class="application">
                     <h2>Application</h2>
@@ -67,7 +68,7 @@
                         'placeholder' => 'First Name'
                     ]) !!}
                     @error('first_name')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::text('last_name', '', [
@@ -76,7 +77,7 @@
                         'placeholder' => 'Last Name'
                     ]) !!}
                     @error('last_name')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::text('email', '', [
@@ -85,7 +86,7 @@
                         'placeholder' => 'Email'
                     ]) !!}
                     @error('email')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::text('phone_number', '', [
@@ -94,7 +95,7 @@
                         'placeholder' => 'Phone Number'
                     ]) !!}
                     @error('phone_number')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     <div class="applynow-radio-group applynow-form-elem">
@@ -141,7 +142,7 @@
                         'class' => 'applynow-form-elem'
                     ]) !!}
                     @error('job')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::text('current_salary', '', [
@@ -150,7 +151,7 @@
                         'placeholder' => 'Current Salary'
                     ]) !!}
                     @error('current_salary')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::text('expected_salary', '', [
@@ -159,7 +160,7 @@
                         'placeholder' => 'Expectected Salary'
                     ]) !!}
                     @error('expected_salary')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
                      <br>
                     {!! Form::label('Resume', 'Resume',[
@@ -172,7 +173,7 @@
                         'class' => 'applynow-form-elem'
                     ]) !!}
                     @error('resume')
-                    <small>{{$message}}</small>
+                    <small class="form-error"><br>&ensp;{{$message}}<br></small>
                     @enderror
 
                     {!! Form::submit('Submit',[

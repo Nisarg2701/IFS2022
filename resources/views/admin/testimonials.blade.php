@@ -2,12 +2,12 @@
     use App\Models\Testimonials;
     $testimonials = Testimonials::all();
     if(isset($changes)){
-    $values = [$changes->name,$changes->testimonials];
+    $values = [$changes->name,$changes->testimonials,$changes->designation];
     $url = url('admin/about/testimonials/update/'.$changes->testimonial_id);
     $heading = "Enter any changes to the database";
     }
     else{
-        $values = ['', ''];
+        $values = ['','',''];
         $url =  url('admin/about/testimonials/add');
         $heading = "Add any new Testimonial";
     }
@@ -18,8 +18,9 @@
 @push('title', 'Testimonials')
 
 @section('main_content')
-    <h1>About Us</h1>
 
+    <h1>About Us</h1>
+    <div class="container">
     <h4>{{ $heading }}</h4>
 
     {{-- Form Open --}}
@@ -33,39 +34,49 @@
 
         {{-- name --}}
     {!! Form::text('name', $values[0], [
-        'class' => '',
+        'class' => 'applynow-form-elem',
         'id' => 'name',
         'placeholder' => 'Add the name'
     ]) !!}
     @error('name')
-        {{ $message }}
+    <small class="form-error"><br>&ensp;{{$message}}<br></small>
     @enderror
 
+    {{-- designation --}}
+    {!! Form::text('designation', $values[2], [
+        'class' => 'applynow-form-elem',
+        'id' => 'designation',
+        'placeholder' => 'Add the designation'
+    ]) !!}
+    @error('designation')
+    <small class="form-error"><br>&ensp;{{$message}}<br></small>
+    @enderror
+        <br>
     {{-- image --}}
     {!! Form::label('image', 'Image', ['class' => '']) !!}
 
     {!! Form::file('image', [
-        'class' => '',
+        'class' => 'applynow-form-elem',
         'id' => 'image'
     ]) !!}
     @error('image')
-    {{ $message }}
+    <small class="form-error"><br>&ensp;{{$message}}<br></small>
     @enderror
 
     {{-- testimonial --}}
     {!! Form::textarea('testimonial', $values[1], [
-        'class' => '',
+        'class' => 'applynow-form-elem textarea',
         'id' => 'testimonial',
         'placeholder' => 'Enter the Testimonial'
     ]) !!}
     @error('testimonial')
-    {{ $message }}
+    <small class="form-error"><br>&ensp;{{$message}}<br></small>
     @enderror
-
+        <br>
     {{-- submit --}}
     @if (isset($changes))
         {!! Form::submit('Update', [
-            'class' => ''
+            'class' => 'applynow-form-elem'
         ]) !!}
     @else
         {!! Form::submit('Submit', [
@@ -74,7 +85,7 @@
     @endif
     {{-- form close --}}
     {!! Form::close() !!}
-
+    </div>
 {{-- Data Table --}}
     <br>
       <div class="containerr">
@@ -83,6 +94,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Image</th>
+                    <th>Designation</th>
                     <th>Testimonial</th>
                     <th>Visibility</th>
                     <th></th>
@@ -96,6 +108,7 @@
                         <td>
                             <img src = "{{ url('storage/'.$testimonial->image) }}" alt="testimonial image"  style="height:10vh"/>
                         </td>
+                        <td>{{$testimonial->designation}}</td>
                         <td>{{$testimonial->testimonials}}</td>
                         <td>
                             @if ($testimonial->visibility == "yes")

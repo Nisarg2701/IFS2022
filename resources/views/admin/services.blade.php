@@ -24,36 +24,36 @@
             ]) !!}
                 {{-- name --}}
             {!! Form::text('name', '', [
-                'class'=>'',
+                'class'=>'applynow-form-elem',
                 'id'=>'name',
                 'placeholder'=>'Service Name'
             ]) !!}
             @error('name')
-                {{ $message }}
+            <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
                 {{-- Content --}}
             {!! Form::textarea('content', '', [
-                'class'=>'',
+                'class'=>'applynow-form-elem',
                 'id'=>'content',
                 'placeholder'=>'Content of Service'
             ]) !!}
             @error('content')
-                {{ $message }}
+            <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
             <div class="documents">
                 {!! Form::label('document', 'Select proper documents for the page', [
                     'id' => 'document',
-                    'class' => ''
+                    'class' => 'applynow-form-elem'
                 ]) !!}<br>
                     {{-- Documents --}}
                 @foreach ($documents as $document)
                     {!! Form::checkbox("document_".$document->documents_id, $document->documents, true, [
                         "id" => 'document',
-                        'class' => ''
+                        'class' => 'applynow-form-elem'
                     ]) !!}
                     {!! Form::label('document', $document->documents, [
                         'id' => 'document',
-                        'class' => ''
+                        'class' => 'applynow-form-elem'
                     ]) !!}<br>
                 @endforeach
             </div>
@@ -62,15 +62,15 @@
             {!! Form::label('Image', 'Image', ['class'=>'']) !!}
 
             {!! Form::file('image', [
-                'class'=>'',
+                'class'=>'applynow-form-elem',
                 'id'=>'image'
             ]) !!}
             @error('image')
-                {{ $message }}
+            <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
                 {{-- submit --}}
             {!! Form::submit('submit', [
-                'class'=>'',
+                'class'=>'applynow-form-elem',
                 'id'=>'submit'
             ]) !!}
                 {{-- Form Close --}}

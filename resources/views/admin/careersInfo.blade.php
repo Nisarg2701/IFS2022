@@ -33,19 +33,19 @@ else{
     ]) !!}
         {!! Form::text('job', $values[0], [
             'placeholder' => 'Enter Title of Job',
-            'class' => '',
+            'class' => 'applynow-form-elem',
             'id' => 'job'
             ]) !!}
         @error('job')
-        {{ $message }}
+        <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
         {!! Form::textarea('specification', $values[1], [
             'placeholder' => 'Enter Specifications for the Job',
-            'class' => '',
+            'class' => 'textarea applynow-form-elem',
             'id' => 'specification'
             ]) !!}
         @error('specification')
-        {{ $message }}
+        <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
         @if (isset($changes))
             {!! Form::submit('Update', [
@@ -53,7 +53,7 @@ else{
             ]) !!}
         @else
             {!! Form::submit('Submit', [
-                'class' => ''
+                'class' => 'applynow-form-elem'
             ]) !!}
         @endif
 

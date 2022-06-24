@@ -9,6 +9,7 @@
 @section('main_content')
 
 <h1>Principals</h1>
+<div class="container">
 {{-- Form Open --}}
 {!! Form::open([
     'url' => url('admin/about/principals/add'),
@@ -19,31 +20,33 @@
 ]) !!}
     {{-- name --}}
 {!! Form::text('name', '', [
-    'class' => '',
+    'class' => 'applynow-form-elem',
     'id' => 'name',
     'placeholder' => 'add a name'
 ]) !!}
 @error('name')
-        {{ $message }}
+<small class="form-error"><br>&ensp;{{$message}}<br></small>
 @enderror
+    <br>
     {{-- image --}}
 {!! Form::label('Image', 'Image', ['class' => '']) !!}
 
 {!! Form::file('image', [
-    'class' => '',
+    'class' => 'applynow-form-elem',
     'id' => 'image'
 ]) !!}
 @error('image')
-        {{ $message }}
+<small class="form-error"><br>&ensp;{{$message}}<br></small>
 @enderror
+    <br>
     {{-- submit --}}
 {!! Form::submit('submit', [
-    'class' => '',
+    'class' => 'applynow-form-elem',
     'id' => 'submit'
 ]) !!}
     {{-- Form Close --}}
 {!! Form::close() !!}
-
+</div>
 {{-- Data Table --}}
 <br>
     <div class="container">

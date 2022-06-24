@@ -27,43 +27,43 @@
         'class' => 'bv-form',
         'enctype' => 'multipart/form-data'
     ]) !!}
-
+    <div class="container">
         {{-- name --}}
         {!! Form::text('name', $values[0], [
-            'class' => '',
+            'class' => 'applynow-form-elem',
             'id' => 'name',
             'placeholder' => 'Add the name'
         ]) !!}
         @error('name')
-        {{ $message }}
+        <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
-
+            <br>
         {{-- image --}}
-        {!! Form::label('image', 'Image', ['class' => '']) !!}
+        {!! Form::label('image', 'Image', ['class' => 'applynow-form-elem']) !!}
 
         {!! Form::file('image', [
-            'class' => '',
+            'class' => 'applynow-form-elem',
             'id' => 'image'
         ]) !!}
         @error('image')
-        {{ $message }}
+        <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
 
         {{-- description --}}
         {!! Form::textarea('description', $values[1], [
-            'class' => '',
+            'class' => 'textarea applynow-form-elem',
             'id' => 'description',
             'placeholder' => 'Enter the description'
         ]) !!}
         @error('description')
-        {{ $message }}
+        <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
-
+            <br>
         {{-- sumbit --}}
         {!! Form::submit('Submit', [
-            'class' => ''
+            'class' => 'applynow-form-elem'
         ]) !!}
-
+        </div>
     {{-- form close --}}
     {!! Form::close() !!}
 
