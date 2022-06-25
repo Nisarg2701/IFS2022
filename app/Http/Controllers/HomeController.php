@@ -39,4 +39,12 @@ class HomeController extends Controller
         $home->save();
         return redirect('admin/');
     }
+
+    public function homeDeleteAdmin($id){
+        $home = Home::find($id);
+        if(!is_null($home)){
+            $home->delete();
+        }
+        return redirect('admin');
+    }
 }

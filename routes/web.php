@@ -32,6 +32,7 @@ Route::prefix('/admin')->group(function () {
         Route::get('', [HomeController::class, 'homeAdmin']);
         Route::post('/add', [HomeController::class, 'homeAddAdmin']);
         Route::get('/visibility/{id}', [HomeController::class, 'homeVisibilityAdmin'])->name('admin.home.visibility');
+        Route::get('/delete/{id}', [HomeController::class, 'homeDeleteAdmin'])->name('admin.home.delete');
     });
 
     Route::prefix('/services')->group(function () {

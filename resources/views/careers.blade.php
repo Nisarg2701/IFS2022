@@ -43,10 +43,10 @@
         </div>
         <br>
 
-            <p class="card">
+            <p>
 
             <div id="description" class="container" style="display: none">
-                <h1 class="carrer-spec">Specifications</h1>
+                <h2 class="carrer-spec heading">Specifications</h2>
                     <div class="container card-text" id="specifications"></div>
             </div>
             </p>

@@ -17,17 +17,20 @@ class ServicesController extends Controller
     }
 
     public function servicesAddAdmin(Request $request){
-        $docs = '<ul>';
+        $docs='<ul class="content">';
+        $content ='<h1 class="container text-3xl font-medium title-font text-white mb-12 aboutus-heading">Service Information</h1>';
+        $content.='<div class="container"><p class="aboutus-info text-white">';
         $documents = Documents::all();
         foreach ($documents as $document){
         if (isset($_POST["document_".$document->documents_id])){
-            $docs.='<li>';
+            $docs.='<li class="content">';
             $docs.= $document->documents;
             $docs.='</li>';
         }
         }
         $docs.='</ul>';
-
+        $content.=$request['content'];
+        $content.='</p></div>';
         $request->validate([
             'name' => 'required|max:100',
             'content' => 'required',
@@ -40,7 +43,7 @@ class ServicesController extends Controller
 
         $service = new Services;
         $service->name = $request['name'];
-        $service->content = $request['content'];
+        $service->content = $content;
         $service->documents = $docs;
         $service->image = $path."/".$image;
         $service-> save();

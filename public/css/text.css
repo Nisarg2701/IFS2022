@@ -6,7 +6,7 @@ background-color:#fcfcfc;
  border-radius: 10px;
  resize: vertical;
 }
-input[type=submit]{
+input[type=submit],button{
  background-image: linear-gradient(#0dccea, #0d70ea);
  border: 0;
  border-radius: 4px;
@@ -23,18 +23,6 @@ input[type=submit]{
  -webkit-user-select: none;
  touch-action: manipulation;
 }
-/* ul li .content{
-    list-style-type: square;
-   left: 0;
-   height: 25px;
-   color: #035efc;
-}
-ul li .nav-item{
-   list-style-type: none;
-}
-ul li span{
-   color: black;
-} */
 .textarea{
    resize:none;
    height: 150px;

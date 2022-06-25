@@ -42,6 +42,7 @@
         <tr>
             <th>Image</th>
             <th>visibility</th>
+            <th><th>
         </tr>
     </thead>
     <tbody>
@@ -54,6 +55,9 @@
                 @else
                     <a href="{{route('admin.home.visibility',['id' => $home->id])}}"><button class="btn btn-danger">Inactive</button></a>
                 @endif
+            </td>
+            <td>
+                <a href="{{route('admin.home.delete',['id' => $home->id])}}"><button class="btn btn-danger">Delete</button></a>
             </td>
         </tr>
     @endforeach
