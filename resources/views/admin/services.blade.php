@@ -47,7 +47,7 @@
                 ]) !!}<br>
                     {{-- Documents --}}
                 @foreach ($documents as $document)
-                    {!! Form::checkbox("document_".$document->documents_id, $document->documents, true, [
+                    {!! Form::checkbox("document_".$document->documents_id, $document->documents, false, [
                         "id" => 'document',
                         'class' => 'applynow-form-elem'
                     ]) !!}

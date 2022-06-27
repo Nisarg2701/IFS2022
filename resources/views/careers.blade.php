@@ -3,6 +3,8 @@
 
 @php
     use App\Models\RecruitmentInfo;
+    $recInfo = RecruitmentInfo::all();
+
     $recruitmentInfos = RecruitmentInfo::all();
     $jobs = array("Select your Job requirement");
     foreach($recruitmentInfos as $recruitmentInfo){
@@ -14,13 +16,13 @@
 @section('main_content')
 
 <h1 class="heading">We are Hiring</h1>
-<div class="carrer-container container ">
+<div class="carrer-container">
 
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <script>var jobId = [];
                     var specificationValues = [];
             </script>
-            @php
+            <!-- @php
                 $count = 0;
                 foreach ($recruitmentInfos as $recruitmentInfo)
                 {   $count++;
@@ -39,19 +41,28 @@
                         continue;
                     }
                 }
-            @endphp
+            @endphp -->
         </div>
-        <br>
-
+        <div class='row'>
+        @foreach ($recInfo as $recrInfo)
+        @if($recrInfo->visibility == 'yes')
+            <div class="card d-flex mx-auto" style="width: 20rem;">
+                    <div class="card-body">
+                        <h2 class="card-title heading bg-slate-900">{{$recrInfo->job}}</h2>
+                        <p class="card-text text-danger">{!!$recrInfo->specification!!}</p>
+                    </div>
+            </div>
+        @endif
+        @endforeach
+        </div>
             <p>
-
             <div id="description" class="container" style="display: none">
                 <h2 class="carrer-spec heading">Specifications</h2>
                     <div class="container card-text" id="specifications"></div>
             </div>
             </p>
 
-            <div id="form" class="carrer-form container card col-md-6">
+            <div id="form" class="carrer-form mx-auto card col-md-6">
                 <div class="application">
                     <h2>Application</h2>
                     {!! Form::open([
@@ -183,13 +194,13 @@
                     {!! Form::close() !!}
                 </div>
             </div>
-        </div>
+
 
         @if(session()->has('alert'))
         <script>alert('{{ session()->get('alert') }}');</script>
         @endif
 
-    <script>
+    <!-- <script>
         function ShowHideDiv(count){
             var hello = document.getElementById(jobId[count]);
             var description = document.getElementById('description');
@@ -197,11 +208,12 @@
             var specifications = document.getElementById('specifications');
             specifications.innerHTML = specificationValues[count];
          }
-    </script>
+    </script> -->
 @endsection
-
+</div>
 @else
 @section('main_content')
-<h2 class="not-hiring">We are not hiring</h2>
+<h2 class="not-hiring heading">We are not hiring</h2>
 @endsection
+
 @endif

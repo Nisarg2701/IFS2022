@@ -23,7 +23,7 @@ class ServicesController extends Controller
         $documents = Documents::all();
         foreach ($documents as $document){
         if (isset($_POST["document_".$document->documents_id])){
-            $docs.='<li class="content">';
+            $docs.='<li class="content text-white">';
             $docs.= $document->documents;
             $docs.='</li>';
         }
@@ -66,4 +66,26 @@ class ServicesController extends Controller
         }
     }
 
+    public function documentsAdmin(){
+        return view('admin\documents');
+    }
+
+    public function documentsAddAdmin(Request $request){
+        $request->validate([
+            'documents' => 'required'
+        ]);
+        $documents = new Documents;
+        $documents->documents = $request['documents'];
+        $documents-> save();
+        return redirect('admin/services/documents')->with('alert','Document has been added');
+    }
+
+    public function documentsDeleteAdmin($id){
+        $documents = new Documents;
+        $documents = Documents::find($id);
+        if(!is_null($documents)){
+            $documents->delete();
+        }
+        return redirect('admin/services/documents');
+    }
 }

@@ -101,81 +101,45 @@
 </section>
 
 <!-- awards -->
-<h1 class="text-3xl font-medium title-font text-white mb-12 text-center aboutus-heading">
-    Awards</h1>
-<div class="container my-5">
-  <!--Carousel Wrapper-->
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item-example" data-slide-to="1"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-
-      <!--First slide-->
-      <div class="carousel-item active">
-
-        <div class="row">
-        @for ($i = 0; $i < 3; $i++)
-        @php
-          $award = Awards::find($award_ids[$i]);
-        @endphp
-          <div class="col-md-4">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ url('storage/'.$award->image) }}"
-                   alt="Card image cap">
-                   <h4 class="card-title text-center">{{$award->description}}</h4>
-            </div>
-          </div>
-          @endfor
+<div class="owl-carousel owl-theme text-white">
+    @foreach ($awards as $award)
+        <div class="item">
+            <img class="h-25" src = "{{ url('storage/'.$award->image) }}" alt="{{ $award->name }} image"  style="height:10vh"/>
+            <h4 class="bg-white text-black text-center">{{ $award->name }}</h4>
         </div>
-      </div>
-
-      <!--/.First slide-->
-
-      <!--Second slide-->
-      @php
-        $size = sizeof($award_ids);
-        if($size>6){
-          $n=6;
-        }else{
-          $n=$size;
-        }
-      @endphp
-      <div class="carousel-item">
-        <div class="row">
-        @for ($i = 3; $i < $n; $i++)
-        @php
-          $award = Awards::find($award_ids[$i]);
-          if($award == null){
-            break;
-          }
-        @endphp
-          <div class="col-md-4">
-            <div class="card mb-2">
-              <img class="card-img-top" src="{{ url('storage/'.$award->image) }}"
-                   alt="Card image cap">
-                   <h4 class="card-title text-center">{{$award->description}}</h4>
-            </div>
-          </div>
-        @endfor
-        </div>
-
-      </div>
-      <!--/.Second slide-->
-    </div>
-    <!--Controls-->
-    <div class="controls-top justify-content-center text-center">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-    </div>
-    <!--/.Controls-->
-  </div>
+    @endforeach
 </div>
+  <script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            stagePadding: 50,
+            center: true,
+            loop:true,
+            margin:10,
+            autoplay:true,
+            autoWidth:true,
+            autoplayTimeout:3000,
+            autoplayHoverPause:true,
+            nav:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:1,
+                    nav:true
+                },
+                600:{
+                    items:3,
+                    nav:false
+                },
+                1000:{
+                    items:5,
+                    nav:true,
+                    loop:true
+                }
+            }
+        });
+    });
+</script>
 
 <!-- principals -->
 <section class="px-4 py-8 mx-auto max-w-7xl">

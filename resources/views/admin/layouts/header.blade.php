@@ -38,10 +38,15 @@
             <a class="dropdown-item " href="{{ url('/admin/about/principals') }}">Principals</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link  @if ($__env->yieldPushContent('title') == "Services") active @endif" href="{{ url('/admin/services') }}">Services</a>
+      <li class="nav-item dropdown @if ($__env->yieldPushContent('title') == "Services" || $__env->yieldPushContent('title') == "Documents") active @endif">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Services
+        </a>
+        <div class="dropdown-menu bg-info">
+            <a class="dropdown-item " href="{{ url('/admin/services') }}">Services</a>
+            <a class="dropdown-item " href="{{ url('/admin/services/documents') }}">Documents</a>
+        </div>
       </li>
-
       <li class="nav-item">
         <a class="nav-link @if ($__env->yieldPushContent('title') == "Apply Now") active @endif" href="{{ url('/admin/apply') }}">Apply Now</a>
       </li>

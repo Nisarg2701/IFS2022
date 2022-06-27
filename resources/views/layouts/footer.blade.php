@@ -3,7 +3,7 @@
   $services = Services::all();
 @endphp
 
-<footer contentEditable class="footer">
+<footer class="footer">
 
 <div class="foot-main">
     <div class="row">
@@ -30,7 +30,7 @@
                 </div>
                 @endforeach
             </div>
-            <a style="color:white; font-size:5px; font-style:none;" href='https://www.freepik.com/vectors/digital-lines'>Digital lines vector created by starline - www.freepik.com</a>
+            <a contenteditable="true" style="color:white; font-size:6px; font-style:none;" href='https://www.freepik.com/vectors/digital-lines'>Digital lines vector created by starline - www.freepik.com</a>
         </div>
     </div>
 </div>
@@ -40,10 +40,15 @@
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="{{ url('owlcarousel/owl.carousel.min.js') }}"></script>
+
+
 </body>
 </html>
 

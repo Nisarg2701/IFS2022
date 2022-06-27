@@ -9,10 +9,11 @@
     margin: 30px;
 }
 .carrer-container{
-    display:flex;
-   justify-content: space-evenly;
-   margin-top: 30px;
+    margin: 20px;
 }
+/* .carrer-card{
+   display:flex;
+} */
 
 @media (max-width: 1000px){
     .carrer-container{
@@ -41,7 +42,7 @@ ul.content, li.content{
    text-align: left;
 	font: inherit;
    vertical-align: baseline;
-   color: white;
+   color: black;
 }
 li{
 	display: list-item;

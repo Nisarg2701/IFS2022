@@ -40,6 +40,12 @@ Route::prefix('/admin')->group(function () {
         Route::post('/add', [ServicesController::class, 'servicesAddAdmin']);
         Route::get('/edit/{id}', [ServicesController::class, 'servicesEditAdmin'])->name('admin.services.edit');
         Route::get('/delete/{id}', [ServicesController::class, 'servicesDeleteAdmin'])->name('admin.services.delete');
+
+        Route::prefix('/documents')->group(function () {
+            Route::get('/', [ServicesController::class, 'documentsAdmin']);
+            Route::get('/add', [ServicesController::class, 'documentsAddAdmin']);
+            Route::get('/delete/{id}', [ServicesController::class, 'documentsDeleteAdmin'])->name('admin.services.documents.delete');
+        });
     });
 
     Route::prefix('/about')->group(function () {
