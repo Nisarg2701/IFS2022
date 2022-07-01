@@ -40,6 +40,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('/add', [ServicesController::class, 'servicesAddAdmin']);
         Route::get('/edit/{id}', [ServicesController::class, 'servicesEditAdmin'])->name('admin.services.edit');
         Route::get('/delete/{id}', [ServicesController::class, 'servicesDeleteAdmin'])->name('admin.services.delete');
+        Route::post('/update/{id}', [ServicesController::class, 'servicesUpdateAdmin']);
 
         Route::prefix('/documents')->group(function () {
             Route::get('/', [ServicesController::class, 'documentsAdmin']);

@@ -2,12 +2,12 @@
     use App\Models\Awards;
     $awards = Awards::all();
     if(isset($changes)){
-    $values = [$changes->name,$changes->description];
+    $values = [$changes->name,$changes->description, $changes->image];
     $url = url('admin/about/awards/update/'.$changes->awards_id);
     $heading = "Enter any changes to the database";
     }
     else{
-        $values = ['', ''];
+        $values = ['', '', ''];
         $url =  url('admin/about/awards/add');
         $heading = "Add any new Awards";
     }
@@ -48,7 +48,10 @@
         @error('image')
         <small class="form-error"><br>&ensp;{{$message}}<br></small>
         @enderror
-
+        @if (isset($changes))
+            {!! Form::label('image', 'Choose an image if you want to replace', ['class' => 'applynow-form-elem']) !!}
+            <img src = "{{ url('storage/'.$values[2]) }}" alt="award image"  style="height:10vh"/>
+        @endif
         {{-- description --}}
         {!! Form::textarea('description', $values[1], [
             'class' => 'textarea applynow-form-elem',

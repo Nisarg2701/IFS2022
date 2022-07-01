@@ -101,11 +101,14 @@
 </section>
 
 <!-- awards -->
+<h1 class="text-3xl font-medium title-font text-white mb-12 text-center aboutus-heading">
+    Awards</h1>
 <div class="owl-carousel owl-theme text-white">
     @foreach ($awards as $award)
         <div class="item">
+            {{-- <h4 class="bg-white text-black text-center">{{ $award->name }}</h4> --}}
             <img class="h-25" src = "{{ url('storage/'.$award->image) }}" alt="{{ $award->name }} image"  style="height:10vh"/>
-            <h4 class="bg-white text-black text-center">{{ $award->name }}</h4>
+            <div class="bg-white text-black text-center">{{ $award->description }}</div>
         </div>
     @endforeach
 </div>

@@ -1,9 +1,22 @@
-<?php
+@php
     use App\Models\Services;
     use App\Models\Documents;
     $services = Services::all();
     $documents = Documents::all();
-?>
+
+    if(isset($changes)){
+    $values = [$changes->name, $changes->content, $changes->documents, $changes->image];
+    $url = url('admin/services/update/'.$changes->service_id);
+    $heading = "Enter any changes to the database";
+    $button = "Update";
+    }
+    else{
+        $values = ['', '', '', ''];
+        $url =  url('admin/services/add');
+        $heading = "Add new services";
+        $button = "Submit";
+    }
+@endphp
 
 @extends('admin.layouts.main')
 @push('title', 'services')
@@ -13,17 +26,17 @@
 
     <div class="container">
         <div class="sub container">
-            <h4> Add new services </h4>
+            <h4> {{ $heading }} </h4>
             {{-- Form Open --}}
             {!! Form::open([
-                'url' => url('admin/services/add'),
+                'url' => $url,
                 'method' => 'post',
                 'class' => 'bv-form',
                 'role' => 'form',
                 'enctype' => 'multipart/form-data'
             ]) !!}
                 {{-- name --}}
-            {!! Form::text('name', '', [
+            {!! Form::text('name', $values[0], [
                 'class'=>'applynow-form-elem',
                 'id'=>'name',
                 'placeholder'=>'Service Name'
@@ -32,7 +45,7 @@
             <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
                 {{-- Content --}}
-            {!! Form::textarea('content', '', [
+            {!! Form::textarea('content', $values[1], [
                 'class'=>'applynow-form-elem',
                 'id'=>'content',
                 'placeholder'=>'Content of Service'
@@ -40,26 +53,36 @@
             @error('content')
             <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
-            <div class="documents">
-                {!! Form::label('document', 'Select proper documents for the page', [
-                    'id' => 'document',
-                    'class' => 'applynow-form-elem'
-                ]) !!}<br>
-                    {{-- Documents --}}
-                @foreach ($documents as $document)
-                    {!! Form::checkbox("document_".$document->documents_id, $document->documents, false, [
-                        "id" => 'document',
-                        'class' => 'applynow-form-elem'
-                    ]) !!}
-                    {!! Form::label('document', $document->documents, [
+            @if (isset($changes))
+                {!! Form::textarea('document', $values[2], [
+                    'class'=>'applynow-form-elem',
+                    'id'=>'document'
+                ]) !!}
+                @error('document')
+                <small class="form-error"><br>&ensp;{{$message}}<br></small>
+                @enderror
+            @else
+                <div class="documents">
+                    {!! Form::label('document', 'Select proper documents for the page', [
                         'id' => 'document',
                         'class' => 'applynow-form-elem'
                     ]) !!}<br>
-                @endforeach
-            </div>
+                        {{-- Documents --}}
+                    @foreach ($documents as $document)
+                        {!! Form::checkbox("document_".$document->documents_id, $document->documents, false, [
+                            "id" => 'document',
+                            'class' => 'applynow-form-elem'
+                        ]) !!}
+                        {!! Form::label('document', $document->documents, [
+                            'id' => 'document',
+                            'class' => 'applynow-form-elem'
+                        ]) !!}<br>
+                    @endforeach
+                </div>
+            @endif
 
                 {{-- Image --}}
-            {!! Form::label('Image', 'Image', ['class'=>'']) !!}
+            <br>{!! Form::label('Image', 'Image', ['class'=>'']) !!}
 
             {!! Form::file('image', [
                 'class'=>'applynow-form-elem',
@@ -68,8 +91,12 @@
             @error('image')
             <small class="form-error"><br>&ensp;{{$message}}<br></small>
             @enderror
+            @if (isset($changes))
+                {!! Form::label('image', 'Choose an image if you want to replace', ['class' => 'applynow-form-elem']) !!}
+                <img src = "{{ url('storage/'.$values[3]) }}" alt="award image"  style="height:10vh"/>
+            @endif
                 {{-- submit --}}
-            {!! Form::submit('submit', [
+            {!! Form::submit($button, [
                 'class'=>'applynow-form-elem',
                 'id'=>'submit'
             ]) !!}

@@ -19,7 +19,7 @@ class ServicesController extends Controller
     public function servicesAddAdmin(Request $request){
         $docs='<ul class="content">';
         $content ='<h1 class="container text-3xl font-medium title-font text-white mb-12 aboutus-heading">Service Information</h1>';
-        $content.='<div class="container"><p class="aboutus-info text-white">';
+        $content.='<div class="container"><p class="aboutus-info text-white text-justify">';
         $documents = Documents::all();
         foreach ($documents as $document){
         if (isset($_POST["document_".$document->documents_id])){
@@ -64,6 +64,28 @@ class ServicesController extends Controller
             $data = compact('changes');
             return view('admin\services')->with($data);
         }
+    }
+
+    public function servicesUpdateAdmin($id, Request $request){
+        $request->validate([
+            'name' => 'required|max:100',
+            'content' => 'required',
+            'document' => 'required'
+        ]);
+
+        $service = Services::find($id);
+        if(isset($request->image)){
+            unlink('storage/'.$service->image);
+            $image = time()."_Service_image.".$request->file('image')->getClientOriginalExtension();
+            $path = 'uploads/admin/services';
+            $store = $request->file('image')->storeAs('public/'.$path, $image);
+            $service->image = $path."/".$image;
+        }
+        $service->name = $request['name'];
+        $service->content = $request['content'];
+        $service->documents = $request['document'];
+        $service-> save();
+        return redirect('admin\services')->with('alert','Service has been updated');
     }
 
     public function documentsAdmin(){

@@ -10,7 +10,8 @@
 }
 header{
 	border-bottom: solid 1px rgba(0,0,0,.05);
-    padding-left: 10px;
+    margin-bottom: 60px;
+    background-color: #262626;
 }
 .MAIN{
     background: url('../images/SL-101619-24150-73.jpg');

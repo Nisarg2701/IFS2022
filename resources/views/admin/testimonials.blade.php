@@ -2,12 +2,12 @@
     use App\Models\Testimonials;
     $testimonials = Testimonials::all();
     if(isset($changes)){
-    $values = [$changes->name,$changes->testimonials,$changes->designation];
+    $values = [$changes->name,$changes->testimonials,$changes->designation,$changes->image];
     $url = url('admin/about/testimonials/update/'.$changes->testimonial_id);
     $heading = "Enter any changes to the database";
     }
     else{
-        $values = ['','',''];
+        $values = ['','','',''];
         $url =  url('admin/about/testimonials/add');
         $heading = "Add any new Testimonial";
     }
@@ -62,7 +62,10 @@
     @error('image')
     <small class="form-error"><br>&ensp;{{$message}}<br></small>
     @enderror
-
+    @if (isset($changes))
+        {!! Form::label('image', 'Choose an image if you want to replace', ['class' => 'applynow-form-elem']) !!}
+        <img src = "{{ url('storage/'.$values[3]) }}" alt="award image"  style="height:10vh"/>
+    @endif
     {{-- testimonial --}}
     {!! Form::textarea('testimonial', $values[1], [
         'class' => 'applynow-form-elem textarea',

@@ -49,12 +49,18 @@ class AboutUsController extends Controller
             'name' => 'required|max:100',
             'description' => 'required|max:1000'
         ]);
-
         $award = Awards::find($id);
+        if(isset($request->image)){
+            unlink('storage/'.$award->image);
+            $image = time()."_award_image.".$request->file('image')->getClientOriginalExtension();
+            $path = 'uploads/admin/awards';
+            $request->file('image')->storeAs('public/'.$path, $image);
+            $award->image = $path."/".$image;
+        }
+
         $award->name = $request['name'];
         $award->description = $request['description'];
         $award->save();
-
         return redirect('admin/about/awards')->with('alert', 'Award has been Updated');
     }
 
@@ -156,6 +162,13 @@ class AboutUsController extends Controller
         ]);
 
         $testimonial = Testimonials::find($id);
+        if(isset($request->image)){
+            unlink('storage/'.$testimonial->image);
+            $image = time()."_testiminial_image.".$request->file('image')->getClientOriginalExtension();
+            $path = 'uploads/admin/testimonials';
+            $request->file('image')->storeAs('public/'.$path, $image);
+            $testimonial->image = $path."/".$image;
+        }
         $testimonial->name = $request['name'];
         $testimonial->designation = $request['name'];
         $testimonial->testimonials = $request['testimonial'];

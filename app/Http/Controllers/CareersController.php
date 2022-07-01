@@ -117,7 +117,6 @@ class CareersController extends Controller
             "job" => "required",
             "specification" => "required"
         ]);
-
         $recruitment = RecruitmentInfo::find($id);
         $recruitment->job = $request['job'];
         $recruitment->specification = $request['specification'];

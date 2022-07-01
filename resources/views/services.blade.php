@@ -28,7 +28,7 @@
 <div class=container>
     <h4 class="heading text-left">Documents Required</h4>
      {!! $service->documents !!}
-<a href="{{ url('/apply') }}"><button>Apply Now</button></a>
+<a href="{{ url('/apply') }}"><button class="norm-button">Apply Now</button></a>
 </div>
 @endsection
 </div>

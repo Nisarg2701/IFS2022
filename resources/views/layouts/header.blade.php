@@ -45,44 +45,29 @@
   @endphp
 
   <body>
-    <!-- <header>
-  <nav class="fixed top-0 left-0 bg-white w-full shadow">
-  <div class="container m-auto flex justify-between items-center text-gray-700">
-    <h1 class="pl-8 py-4 text-xl font-bold">HARTDEV</h1>
-    <ul class="hidden md:flex items-center pr-10 text-base font-semibold cursor-pointer">
-      <li class="hover:bg-gray-200 py-4 px-6">Home</li>
-      <li class="hover:bg-gray-200 py-4 px-6">Contact</li>
-      <li class="hover:bg-gray-200 py-4 px-6">Services</li>
-      <li class="hover:bg-gray-200 py-4 px-6">About</li>
-    </ul>
-    <button class="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
-      <div class="w-5 h-1 bg-gray-600 mb-1"></div>
-      <div class="w-5 h-1 bg-gray-600 mb-1"></div>
-      <div class="w-5 h-1 bg-gray-600"></div>
-      <div class="absolute top-0 -right-full h-screen w-8/12 bg-white border opacity-0
-      group-focus:right-0 group-focus:opacity-100 transition-all duration-300">
-        <ul class="flex flex-col items-center w-full text-base cursor-pointer pt-10">
-          <li class="hover:bg-gray-200 py-4 px-6 w-full">Home</li>
-          <li class="hover:bg-gray-200 py-4 px-6 w-full">Contact</li>
-          <li class="hover:bg-gray-200 py-4 px-6 w-full">Services</li>
-          <li class="hover:bg-gray-200 py-4 px-6 w-full">About</li>
-        </ul>
-      </div>
-    </button>
-  </div>
-</nav>
-</header> -->
-<header class="text-gray-600 body-font">
-<div class=" mx-auto flex  md:flex-row items-center">
+    <header class="body-font">
+  <nav class="flex items-center justify-between flex-wrap body-font p-1 fixed w-full z-10 top-0">
+		<div class="flex items-center flex-shrink-0 text-white mr-10">
     <a class="" href="#"><img src="{{ url('images\output-onlinepngtools logo.png') }}" alt="Logo" style="width:40px;"></a>
     <a class="ml-3 text-xl" href="#"><img src="{{ url('images\output-onlinepngtools.png') }}" alt="Logo" style="width:140px;"></a>
-  </a>
-  <button class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml:auto"></button>
-    <div class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
-        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+		</div>
+
+		<div class="block xl:hidden">
+			<button id="nav-toggle" class="flex items-center px-3 py-2 text-gray-500 border-gray-600 hover:text-white hover:border-white nav-button">
+				<svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-grow xl:flex xl:items-center xl:w-auto hidden xl:block pt-6 xl:pt-0" id="nav-content">
+			<ul class="list-reset xl:flex justify-end flex-1 items-center header">
+				<li class="mr-3 header">
           <a class=" mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Home") text-white @endif" href="{{ url('/') }}">Home</a>
+				</li>
+				<li class="mr-3 header">
           <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "About Us") text-white @endif" href="{{ url('/about') }}">About Us</a>
-            <div class="mr-5">
+				</li>
+				<li class="mr-3 header">
+        <div class="mr-5">
               <a class="hover:bg-black hover:text-white dropdown-toggle dropdown nav-link @if (isset($id)&&$__env->yieldPushContent('title') == $id) text-white @endif" href="#" id="navbardrop" data-toggle="dropdown">
                 Services
               </a>
@@ -93,9 +78,43 @@
 
                 </div>
             </div>
+				</li>
+				<li class="mr-3 header">
+          <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Apply Now") text-white @endif" href="{{ url('/apply') }}">Apply Now</a>
+				</li>
+        <li class="mr-3 header">
+        <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Careers") text-white @endif" href="{{ url('/careers') }}">Careers</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!--Container-->
+	<!-- <div class="container shadow-lg mx-auto bg-white mt-24 md:mt-18">
+
+	</div> -->
+
+	<script>
+		//Javascript to toggle the menu
+		document.getElementById('nav-toggle').onclick = function(){
+			document.getElementById("nav-content").classList.toggle("hidden");
+		}
+	</script>
+  </header>
+<!-- <header class="text-gray-600 body-font">
+<div class=" mx-auto flex  md:flex-row items-center">
+    <a class="" href="#"><img src="{{ url('images\output-onlinepngtools logo.png') }}" alt="Logo" style="width:40px;"></a>
+    <a class="ml-3 text-xl" href="#"><img src="{{ url('images\output-onlinepngtools.png') }}" alt="Logo" style="width:140px;"></a>
+  </a>
+  <button class="text-white inline-flex p-3 hover:bg-gray-900 rounded lg:hidden ml:auto"></button>
+    <div class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto" id="navigation">
+        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+          <a class=" mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Home") text-white @endif" href="{{ url('/') }}">Home</a>
+          <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "About Us") text-white @endif" href="{{ url('/about') }}">About Us</a>
+
           <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Apply Now") text-white @endif" href="{{ url('/apply') }}">Apply Now</a>
           <a class="mr-5 hover:bg-black hover:text-white nav-link @if ($__env->yieldPushContent('title') == "Careers") text-white @endif" href="{{ url('/careers') }}">Careers</a>
         </nav>
     </div>
 </div>
-</header>
+</header> -->
